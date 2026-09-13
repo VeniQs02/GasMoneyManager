@@ -4,12 +4,11 @@ section{
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
-  width: 88vw;
+  width: 100%;
 }
 .wrapper{
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  align-items: start;
 }
 
 h1{

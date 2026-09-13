@@ -1,19 +1,18 @@
+.wrapper{
+  display: flex;
+  gap: 0;
+}
+
 .title{
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  right: 0px;
-  top: 0px;
-  position: absolute;
   gap: 10px;
 }
 
 img{
   max-width: 100px;
-  height: auto;
-  margin-right: -60px;
 }
 
 h1{
@@ -28,6 +27,4 @@ pre{
 }
 
 divider-vertical{
-  position: absolute;
-  right: 200px;
 }
