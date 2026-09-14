@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
+import {NgClass, NgStyle} from '@angular/common';
 
 @Component({
-  imports: [],
+  imports: [
+    NgStyle,
+    NgClass
+  ],
   selector: 'unit',
   styleUrl: './unit.css',
   templateUrl: './unit.html',
 })
-export class Unit {}
+export class Unit {
+  isContentHidden: boolean = false;
+}
