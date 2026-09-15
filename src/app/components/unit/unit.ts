@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgClass, NgStyle} from '@angular/common';
 
 @Component({
@@ -11,5 +11,8 @@ import {NgClass, NgStyle} from '@angular/common';
   templateUrl: './unit.html',
 })
 export class Unit {
+  @Input({required: true}) unitTitle: String = '';
+  @Input({required: true}) unitIcon: String = '';
+  // @Input({required: true}) unitContent: String = '';
   isContentHidden: boolean = false;
 }

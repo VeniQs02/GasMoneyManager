@@ -1,14 +1,13 @@
 <div class="wrapper" (click)="isContentHidden = !isContentHidden">
-  <div class="unitTitle" >
-    Tytuł
+  <div class="unitHeader" >
+    <div class="unitTitle">
+      <h2>{{unitTitle}}</h2>
+      <span class="material-symbols-outlined">{{unitIcon}}</span>
+    </div>
     <span class="material-symbols-outlined" [ngStyle]="!isContentHidden ? {'rotate': '0deg'} : {'rotate': '180deg'}">arrow_drop_down</span>
   </div>
   <div class="unitContent" [ngClass]="!isContentHidden ? 'hidden' : '' ">
     <br>
-    Lorem ipsum asde sda dsad ad as das da d as da d a da sda asdas
-    Lorem ipsum asde sda dsad ad as das da d as da d a da sda asdas
-    Lorem ipsum asde sda dsad ad as das da d as da d a da sda asdas
-    Lorem ipsum asde sda dsad ad as das da d as da d a da sda asdas
-
+    <ng-content/>
   </div>
 </div>

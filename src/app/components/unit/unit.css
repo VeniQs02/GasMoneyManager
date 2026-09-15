@@ -17,9 +17,22 @@
   background-color: #ddd;
 }
 
-.unitTitle{
+.unitHeader{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.unitTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h2{
+  font-size: 2rem;
+  margin: 0;
 }
 
 .unitContent{
@@ -42,4 +55,6 @@
   font-size: 2.5rem;
   transition: rotate 0.2s ease-in-out;
 }
+
+
 
