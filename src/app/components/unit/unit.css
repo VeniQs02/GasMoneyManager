@@ -37,8 +37,10 @@ h2{
 
 .unitContent{
   font-size: 1.3rem;
-  max-height: 500px;
   opacity: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   transition:
     max-height 0.4s ,

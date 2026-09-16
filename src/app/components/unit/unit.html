@@ -6,7 +6,7 @@
     </div>
     <span class="material-symbols-outlined" [ngStyle]="!isContentHidden ? {'rotate': '0deg'} : {'rotate': '180deg'}">arrow_drop_down</span>
   </div>
-  <div class="unitContent" [ngClass]="!isContentHidden ? 'hidden' : '' ">
+  <div class="unitContent" [ngClass]="!isContentHidden ? 'hidden' : '' " (click)="$event.stopPropagation()">
     <br>
     <ng-content/>
   </div>
