@@ -4,13 +4,12 @@
   border-radius: 40px;
   background-color: #eee;
   padding: 40px;
-  margin: 0;
-  width: 38vw;
+  margin: 10px;
+  width: 78vw;
   cursor: pointer;
   transition: background-color 0.2s;
   box-sizing: border-box;
   min-width: 500px;
-  max-width: 600px;
 }
 .wrapper:hover{
   background-color: #e5e5e5;

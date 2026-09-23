@@ -1,9 +1,11 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {Unit} from './components/unit/unit';
 import {Title} from './components/title/title';
 import ApexCharts from 'apexcharts'
 import type { ApexOptions } from 'apexcharts';
 import { GalleryComponent, GalleryItem } from '@daelmaak/ngx-gallery';
+import {Gas} from './data/Gas';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   imports: [Unit, Title, GalleryComponent],
@@ -11,47 +13,95 @@ import { GalleryComponent, GalleryItem } from '@daelmaak/ngx-gallery';
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App implements AfterViewInit {
-  images: GalleryItem[] = [{ src: 'favicon.png', alt: 'essa', thumbSrc:'favicon.png' }, { src: 'favicon.png', alt: 'essa' }];
+export class App implements OnInit {
+  images: GalleryItem[] = [];
 
-  ngAfterViewInit() {
+  private http = inject(HttpClient);
+
+  gasData: Gas[] = [];
+  date: string[] = [];
+  lpg: (number | null)[] = [];
+  petrol: (number | null)[] = [];
+  mileage: (number | null)[] = [];
+
+  ngOnInit() {
+    this.displayChart()
+    this.displayGallery()
+  }
+
+  displayChart() {
+    this.http.get<Gas[]>('/gasData.json').subscribe(data => {
+      this.gasData = data;
+
+      for (const gas of data) {
+        this.date.push(gas.date);
+        this.lpg.push(gas.lpg || null);
+        this.petrol.push(gas.petrol || null);
+        this.mileage.push(gas.mileage || null);
+      }
+      this.renderChart();
+    });
+  }
+
+  renderChart() {
     const options: ApexOptions = {
       series: [
         {
-          name: 'Revenue',
-          type: 'column',
-          data: [140, 200, 250, 150, 250, 280, 380, 460, 1],
+          name: 'LPG',
+          data: this.lpg,
         },
         {
-          name: 'Headcount',
-          type: 'column',
-          data: [110, 300, 310, 400, 410, 490, 650, 850, 1],
+          name: 'Petrol',
+          data: this.petrol,
         },
         {
-          name: 'Share Price',
+          name: 'Mileage',
           type: 'line',
-          data: [20, 29, 37, 36, 44, 45, 50, 58],
-        },
+          data: this.mileage,
+        }
       ],
       chart: {
-        width: '150%',
-        type: 'line',
-        stacked: false,
+        width: '370%',
+        height: 450,
+        type: 'scatter'
       },
       title: {
-        text: 'Company Performance (2017 - 2024)',
+        text: 'Fuel prices',
         align: 'left',
         offsetX: 110,
       },
-      xaxis: {
-        categories: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 1],
-      }
-    };
-    const element = document.getElementById("chart");
 
+      xaxis: {
+        categories: this.date,
+      },
+      yaxis: [
+        {
+          seriesName: ['LPG', 'Petrol'],
+          title: {
+            text: 'Fuel price'
+          }
+        },
+        {
+          seriesName: 'Mileage',
+          opposite: true,
+          title: {
+            text: 'Mileage'
+          }
+        }
+      ]
+    };
+
+    const element = document.getElementById('chart');
+    console.log(document.getElementById('chart'));
     if (element) {
       const chart = new ApexCharts(element, options);
       chart.render();
+    }
+  }
+
+  displayGallery() {
+    for(let i = 0; i < 8; i++) {
+      this.images.push({src: '/peugeot/peugeot_' + i + '.jpg', alt: '/peugeot/peugeot_' + i + '.jpg', thumbSrc: '/peugeot/peugeot_' + i + '.jpg'});
     }
   }
 }
