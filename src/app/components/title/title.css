@@ -26,5 +26,20 @@ pre{
   margin: 0;
 }
 
-divider-vertical{
+.carButton{
+  border-radius: 40px;
+  background-color: #eee;
+  padding: 20px;
+  margin: 10px;
+  width: 75%;
+  font-size: 1.2rem;
+}
+
+.carButton:hover{
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+.selectedButton{
+  background-color: #ddd;
 }
