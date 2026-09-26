@@ -6,9 +6,10 @@ import type { ApexOptions } from 'apexcharts';
 import { GalleryComponent, GalleryItem } from '@daelmaak/ngx-gallery';
 import {Gas} from './data/Gas';
 import {HttpClient} from '@angular/common/http';
+import {GraphButtons} from './components/graph-buttons/graph-buttons';
 
 @Component({
-  imports: [Unit, Title, GalleryComponent],
+  imports: [Unit, Title, GalleryComponent, GraphButtons],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
