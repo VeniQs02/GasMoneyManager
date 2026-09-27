@@ -1,9 +1,9 @@
-.wrapper{
+.wrapper {
   display: flex;
   gap: 0;
 }
 
-.title{
+.title {
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -11,22 +11,22 @@
   gap: 10px;
 }
 
-img{
+img {
   max-width: 100px;
 }
 
-h1{
+h1 {
   margin-right: 30px;
   margin-top: 0;
   line-height: 2.6rem;
   color: #eee;
 }
 
-pre{
+pre {
   margin: 0;
 }
 
-.carButton{
+.carButton {
   border-radius: 20px;
   background-color: rgba(0, 130, 95, 0.8);
   padding: 16px;
@@ -35,11 +35,11 @@ pre{
   font-size: 1.2rem;
 }
 
-.carButton:hover{
+.carButton:hover {
   background-color: #e5e5e5;
   cursor: pointer;
 }
 
-.selectedButton{
+.selectedButton {
   background-color: #00825f;
 }

@@ -1,8 +1,8 @@
 <div class="wrapper" (click)="isContentHidden = !isContentHidden">
-  <div class="unitHeader" >
+  <div class="unitHeader">
     <div class="unitTitle">
-      <h2>{{unitTitle}}</h2>
-      <span class="material-symbols-outlined">{{unitIcon}}</span>
+      <h2>{{ unitTitle }}</h2>
+      <span class="material-symbols-outlined">{{ unitIcon }}</span>
     </div>
     <span class="material-symbols-outlined" [ngStyle]="!isContentHidden ? {'rotate': '0deg'} : {'rotate': '180deg'}">arrow_drop_down</span>
   </div>

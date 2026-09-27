@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Divider } from './divider';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Divider} from './divider';
 
 describe('Divider', () => {
   let component: Divider;

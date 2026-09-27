@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GraphButtons } from './graph-buttons';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {GraphButtons} from './graph-buttons';
 
 describe('GraphButtons', () => {
   let component: GraphButtons;

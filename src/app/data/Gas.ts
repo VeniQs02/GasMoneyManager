@@ -1,4 +1,4 @@
-export  interface Gas{
+export interface Gas {
   date: string;
   lpg: number | null;
   petrol: number | null;

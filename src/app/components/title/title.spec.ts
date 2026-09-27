@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Title } from './title';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {Title} from './title';
 
 describe('Title', () => {
   let component: Title;

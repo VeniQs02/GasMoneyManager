@@ -13,6 +13,5 @@ import {NgClass, NgStyle} from '@angular/common';
 export class Unit {
   @Input({required: true}) unitTitle: String = '';
   @Input({required: true}) unitIcon: String = '';
-  // @Input({required: true}) unitContent: String = '';
   isContentHidden: boolean = false;
 }

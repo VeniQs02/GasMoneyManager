@@ -1,5 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DividerVertical } from './divider-vertical';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {DividerVertical} from './divider-vertical';
 
 describe('DividerVertical', () => {
   let component: DividerVertical;
