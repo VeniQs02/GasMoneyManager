@@ -3,9 +3,9 @@
     <unit
       unitTitle="Gas statistics"
       unitIcon="account_balance_wallet">
-      <graph-buttons [buttonNames]="['Fueling chart', 'Average fuel price chart', 'Average fuel consumption']"/>
-      <div id="fuelingChart"></div>
-      <div id="averageFuelPriceChart"></div>
+      <graph-buttons (selectedButtonChange)="displayChart($event)"
+                     [buttonNames]="['Fueling chart', 'Average fuel price chart', 'Average fuel consumption']"/>
+      <div id="chart"></div>
     </unit>
 
     <unit

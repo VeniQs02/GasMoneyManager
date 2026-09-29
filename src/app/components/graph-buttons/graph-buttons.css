@@ -19,3 +19,7 @@
 .button:hover {
   background-color: #00825f;
 }
+
+.selectedButton {
+  background-color: #00825f;
+}

@@ -192,82 +192,82 @@
   {
     "date": "2025.03.15",
     "lpgPrice": 3.03,
-    "petrolPrice": 6.01
+    "petrolPrice": 6.41
   },
   {
     "date": "2025.04.15",
     "lpgPrice": 2.96,
-    "petrolPrice": 5.91
+    "petrolPrice": 6.91
   },
   {
     "date": "2025.05.15",
     "lpgPrice": 2.9,
-    "petrolPrice": 5.82
+    "petrolPrice": 6.82
   },
   {
     "date": "2025.06.15",
     "lpgPrice": 2.86,
-    "petrolPrice": 5.78
+    "petrolPrice": 6.78
   },
   {
     "date": "2025.07.15",
     "lpgPrice": 2.82,
-    "petrolPrice": 5.85
+    "petrolPrice": 6.85
   },
   {
     "date": "2025.08.15",
     "lpgPrice": 2.79,
-    "petrolPrice": 5.91
+    "petrolPrice": 6.91
   },
   {
     "date": "2025.09.15",
     "lpgPrice": 2.75,
-    "petrolPrice": 5.86
+    "petrolPrice": 6.86
   },
   {
     "date": "2025.10.15",
     "lpgPrice": 2.7,
-    "petrolPrice": 5.78
+    "petrolPrice": 6.78
   },
   {
     "date": "2025.11.15",
     "lpgPrice": 2.67,
-    "petrolPrice": 5.74
+    "petrolPrice": 6.74
   },
   {
     "date": "2025.12.15",
     "lpgPrice": 2.65,
-    "petrolPrice": 5.72
+    "petrolPrice": 6.72
   },
   {
     "date": "2026.01.15",
     "lpgPrice": 2.68,
-    "petrolPrice": 6.26
+    "petrolPrice": 7.26
   },
   {
     "date": "2026.02.15",
     "lpgPrice": 2.71,
-    "petrolPrice": 6.83
+    "petrolPrice": 7.83
   },
   {
     "date": "2026.03.15",
     "lpgPrice": 2.76,
-    "petrolPrice": 6.91
+    "petrolPrice": 7.91
   },
   {
     "date": "2026.04.15",
     "lpgPrice": 2.81,
-    "petrolPrice": 6.98
+    "petrolPrice": 7.98
   },
   {
     "date": "2026.05.15",
     "lpgPrice": 2.84,
-    "petrolPrice": 7.04
+    "petrolPrice": 8.04
   },
   {
     "date": "2026.06.15",
     "lpgPrice": 2.87,
-    "petrolPrice": 7.09
+    "petrolPrice": 8.09
   },
   {
     "date": "2026.07.15",
@@ -282,6 +282,11 @@
   {
     "date": "2026.09.15",
     "lpgPrice": 2.76,
-    "petrolPrice": 7.92
+    "petrolPrice": 8.12
+  },
+  {
+    "date": "2026.10.15",
+    "lpgPrice": 2.86,
+    "petrolPrice": 8.22
   }
 ]

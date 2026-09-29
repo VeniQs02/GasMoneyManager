@@ -33,11 +33,11 @@ export class App implements OnInit {
 
 
   ngOnInit() {
-    this.displayChart()
+    this.prepareCharts()
     this.displayGallery()
   }
 
-  displayChart() {
+  prepareCharts() {
     this.http.get<Gas[]>('/gasData.json').subscribe(data => {
       this.gasData = data;
 
@@ -50,7 +50,7 @@ export class App implements OnInit {
       this.renderFuelingChart();
     });
 
-    this.http.get<FuelPrice[]>('/fuelPrices.json').subscribe(data => {
+    this.http.get<FuelPrice[]>('/fuelPricesData.json').subscribe(data => {
       this.fuelPriceData = data;
 
       for (const fuelPrice of data) {
@@ -58,9 +58,17 @@ export class App implements OnInit {
         this.lpgPrice.push(fuelPrice.lpgPrice || null);
         this.petrolPrice.push(fuelPrice.petrolPrice || null);
       }
-
-      this.renderAverageFuelPriceChart()
     })
+  }
+
+  displayChart(chartName: string) {
+    if (chartName == 'Average fuel price chart') {
+      this.renderAverageFuelPriceChart()
+    } else if (chartName == 'Fueling chart') {
+      this.renderFuelingChart();
+    } else if (chartName == 'Fueling price chart') {
+
+    }
   }
 
   renderFuelingChart() {
@@ -105,7 +113,7 @@ export class App implements OnInit {
       ]
     };
 
-    const fuelingChart = document.getElementById('fuelingChart');
+    const fuelingChart = document.getElementById('chart');
     if (fuelingChart) {
       const chart = new ApexCharts(fuelingChart, options);
       chart.render();
@@ -155,7 +163,7 @@ export class App implements OnInit {
       ]
     };
 
-    const averageFuelPriceChart = document.getElementById('averageFuelPriceChart');
+    const averageFuelPriceChart = document.getElementById('chart');
     if (averageFuelPriceChart) {
       const chart = new ApexCharts(averageFuelPriceChart, options);
       chart.render();
