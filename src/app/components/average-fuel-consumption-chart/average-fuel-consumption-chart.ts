@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   imports: [],
@@ -60,9 +60,13 @@ export class AverageFuelConsumptionChart implements OnChanges {
       ? validLPGPrices.reduce((sum, price) => sum + price, 0) / validLPGPrices.length
       : 0;
 
+    this.AverageLPGPrice = Math.round(this.AverageLPGPrice * 100) / 100;
+
     this.AveragePetrolPrice = validPetrolPrices.length > 0
       ? validPetrolPrices.reduce((sum, price) => sum + price, 0) / validPetrolPrices.length
       : 0;
+
+    this.AveragePetrolPrice = Math.round(this.AveragePetrolPrice * 100) / 100;
 
     this.AverageLPGConsumptionPer100km =
       this.AverageLPGPrice > 0
