@@ -8,9 +8,11 @@ import {Gas} from './data/Gas';
 import {HttpClient} from '@angular/common/http';
 import {GraphButtons} from './components/graph-buttons/graph-buttons';
 import {FuelPrice} from './data/FuelPrice';
+import {AverageFuelConsumptionChart} from './components/average-fuel-consumption-chart/average-fuel-consumption-chart';
+import {NgClass} from '@angular/common';
 
 @Component({
-  imports: [Unit, Title, GalleryComponent, GraphButtons],
+  imports: [Unit, Title, GalleryComponent, GraphButtons, AverageFuelConsumptionChart, NgClass],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -31,6 +33,8 @@ export class App implements OnInit {
   lpgPrice: (number | null)[] = [];
   petrolPrice: (number | null)[] = [];
 
+  isCustomChartVisible: boolean = false;
+
 
   ngOnInit() {
     this.prepareCharts()
@@ -41,33 +45,32 @@ export class App implements OnInit {
     this.http.get<Gas[]>('/gasData.json').subscribe(data => {
       this.gasData = data;
 
-      for (const gas of data) {
-        this.fuelingDate.push(gas.date);
-        this.lpg.push(gas.lpg || null);
-        this.petrol.push(gas.petrol || null);
-        this.mileage.push(gas.mileage || null);
-      }
+      this.fuelingDate = data.map(gas => gas.date);
+      this.lpg = data.map(gas => gas.lpg ?? null);
+      this.petrol = data.map(gas => gas.petrol ?? null);
+      this.mileage = data.map(gas => gas.mileage ?? null);
+
       this.renderFuelingChart();
     });
 
     this.http.get<FuelPrice[]>('/fuelPricesData.json').subscribe(data => {
       this.fuelPriceData = data;
 
-      for (const fuelPrice of data) {
-        this.priceDate.push(fuelPrice.date);
-        this.lpgPrice.push(fuelPrice.lpgPrice || null);
-        this.petrolPrice.push(fuelPrice.petrolPrice || null);
-      }
-    })
+      this.priceDate = data.map(fuelPrice => fuelPrice.date);
+      this.lpgPrice = data.map(fuelPrice => fuelPrice.lpgPrice ?? null);
+      this.petrolPrice = data.map(fuelPrice => fuelPrice.petrolPrice ?? null);
+    });
   }
 
   displayChart(chartName: string) {
     if (chartName == 'Average fuel price chart') {
+      this.isCustomChartVisible = false;
       this.renderAverageFuelPriceChart()
     } else if (chartName == 'Fueling chart') {
+      this.isCustomChartVisible = false;
       this.renderFuelingChart();
-    } else if (chartName == 'Fueling price chart') {
-
+    } else if (chartName == 'Average fuel consumption') {
+      this.isCustomChartVisible = true;
     }
   }
 
