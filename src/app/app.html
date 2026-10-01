@@ -4,10 +4,10 @@
       unitTitle="Gas statistics"
       unitIcon="account_balance_wallet">
       <graph-buttons (selectedButtonChange)="displayChart($event)"
-                     [buttonNames]="['Fueling chart', 'Average fuel price chart', 'Average fuel consumption']"/>
+                     [buttonNames]="['Fueling chart', 'Average fuel price chart', 'Statistics']"/>
       <div id="chart" [ngClass]="isCustomChartVisible ? 'hidden' : '' "></div>
       <div class="AverageFuelConsumption">
-        <average-fuel-consumption-chart [fuelingDate]="fuelingDate" [lpg]="lpg" [petrol]="petrol" [mileage]="mileage"
+        <statistics [fuelingDate]="fuelingDate" [lpg]="lpg" [petrol]="petrol" [mileage]="mileage"
                                         [priceDate]="priceDate" [lpgPrice]="lpgPrice" [petrolPrice]="petrolPrice"
                                         [ngClass]="isCustomChartVisible ? '' : 'hidden' "/>
       </div>

@@ -2,11 +2,11 @@ import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'average-fuel-consumption-chart',
-  styleUrl: './average-fuel-consumption-chart.css',
-  templateUrl: './average-fuel-consumption-chart.html',
+  selector: 'statistics',
+  styleUrl: './statistics.css',
+  templateUrl: './statistics.html',
 })
-export class AverageFuelConsumptionChart implements OnChanges {
+export class Statistics implements OnChanges {
 
   @Input() fuelingDate: string[] = [];
   @Input() lpg: (number | null)[] = [];
@@ -19,18 +19,24 @@ export class AverageFuelConsumptionChart implements OnChanges {
 
   AverageLPGConsumptionPer100km: number = 0;
   AverageLPGPrice: number = 0;
+  LPGPriceIncreasePercent: number = 0;
+  TotalLPG: number = 0;
   AveragePetrolConsumptionPer100km: number = 0;
   AveragePetrolPrice: number = 0;
+  PetrolPriceIncreasePercent: number = 0;
+  TotalPetrol: number = 0;
+  Kilometers: number = 0;
+  Savings: number = 0;
 
   ngOnChanges(): void {
-    this.calculateAverage();
+    this.calculateChart();
   }
 
-  private calculateAverage(): void {
+  private calculateChart(): void {
     const firstMileage = this.mileage[0] ?? 0;
     const lastMileage = this.mileage[this.mileage.length - 1] ?? 0;
 
-    const kilometers = lastMileage - firstMileage;
+    this.Kilometers = lastMileage - firstMileage;
 
     const totalLPG = this.lpg.reduce<number>(
       (sum, value) => sum + (value == null ? 0 : Number(value)),
@@ -41,12 +47,6 @@ export class AverageFuelConsumptionChart implements OnChanges {
       (sum, value) => sum + (value == null ? 0 : Number(value)),
       0
     );
-
-    if (kilometers <= 0) {
-      this.AverageLPGConsumptionPer100km = 0;
-      this.AveragePetrolConsumptionPer100km = 0;
-      return;
-    }
 
     const validLPGPrices = this.lpgPrice?.filter(
       (price): price is number => price !== null
@@ -70,13 +70,32 @@ export class AverageFuelConsumptionChart implements OnChanges {
 
     this.AverageLPGConsumptionPer100km =
       this.AverageLPGPrice > 0
-        ? Math.round((totalLPG / this.AverageLPGPrice) / kilometers * 10000) / 100
+        ? Math.round((totalLPG / this.AverageLPGPrice) / this.Kilometers * 10000) / 100
         : 0;
 
     this.AveragePetrolConsumptionPer100km =
       this.AveragePetrolPrice > 0
-        ? Math.round((totalPetrol / this.AveragePetrolPrice) / kilometers * 10000) / 100
+        ? Math.round((totalPetrol / this.AveragePetrolPrice) / this.Kilometers * 10000) / 100
         : 0;
+
+    this.LPGPriceIncreasePercent = validLPGPrices.length >= 2
+      ? Math.round(
+      ((validLPGPrices[validLPGPrices.length - 1] - validLPGPrices[0]) /
+        validLPGPrices[0]) * 10000
+    ) / 100
+      : 0;
+
+    this.PetrolPriceIncreasePercent = validPetrolPrices.length >= 2
+      ? Math.round(
+      ((validPetrolPrices[validPetrolPrices.length - 1] - validPetrolPrices[0]) /
+        validPetrolPrices[0]) * 10000
+    ) / 100
+      : 0;
+
+    this.TotalLPG = Math.round(this.AverageLPGConsumptionPer100km * this.Kilometers) /100;
+    this.TotalPetrol = Math.round(this.AveragePetrolConsumptionPer100km * this.Kilometers) / 100;
+
+    this.Savings = Math.round(this.TotalLPG * (this.AverageLPGPrice - this.AveragePetrolPrice) * 100) / 100;
   }
 }
 

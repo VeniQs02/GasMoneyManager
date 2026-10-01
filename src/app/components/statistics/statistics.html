@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="innerWrapper">
+    <p class="statisticText">Average LPG <br> consumption per 100km</p>
+    <p class="statisticNumber">{{ AverageLPGConsumptionPer100km }} l</p>
+  </div>
+  <div class="innerWrapper">
+    <p class="statisticText">Average petrol <br> consumption per 100km</p>
+    <p class="statisticNumber">{{ AveragePetrolConsumptionPer100km }} l</p>
+  </div>
+  <div class="innerWrapper">
+    <p class="statisticText">Total savings <br> using LPG</p>
+    <p class="statisticNumber green">{{ Savings }} PLN</p>
+  </div>
+
+  <div class="innerWrapper tinyWrapper">
+    <p class="statisticText smallerText"> LPG price <br> change </p>
+    <p class="statisticNumber smallerNumber green">{{ LPGPriceIncreasePercent }} %</p>
+  </div>
+  <div class="innerWrapper tinyWrapper">
+    <p class="statisticText smallerText"> Petrol price <br> change </p>
+    <p class="statisticNumber smallerNumber red">{{ PetrolPriceIncreasePercent }} %</p>
+  </div>
+  <div class="innerWrapper tinyWrapper">
+    <p class="statisticText smallerText">Total LPG <br> ‌‌ </p>
+    <p class="statisticNumber smallerNumber">{{ TotalLPG }} l</p>
+  </div>
+  <div class="innerWrapper tinyWrapper">
+    <p class="statisticText smallerText">Total petrol <br> ‌‌ </p>
+    <p class="statisticNumber smallerNumber">{{ TotalPetrol }} l</p>
+  </div>
+
+  <div class="innerWrapper smallerWrapper">
+    <p class="statisticText smallerText">Average LPG <br> price </p>
+    <p class="statisticNumber smallerNumber">{{ AverageLPGPrice }} PLN</p>
+  </div>
+  <div class="innerWrapper smallerWrapper">
+    <p class="statisticText smallerText">Average petrol <br> price</p>
+    <p class="statisticNumber smallerNumber">{{ AveragePetrolPrice }} PLN</p>
+  </div>
+  <div class="innerWrapper smallerWrapper">
+    <p class="statisticText smallerText">Distance <br> ‌‌ </p>
+    <p class="statisticNumber smallerNumber">{{ Kilometers.toLocaleString('us-US') }} km</p>
+  </div>
+</div>

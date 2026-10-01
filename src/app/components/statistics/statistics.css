@@ -2,11 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin-left: 50px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .innerWrapper {
-  width: 40%;
+  width: 32%;
   display: flex;
   flex-direction: column;
 }
@@ -15,8 +17,12 @@
   width: 30%;
 }
 
-.statisticText {
+.tinyWrapper{
+  width: 23%;
+}
 
+.statisticText {
+  font-size: 2rem;
 }
 
 .statisticNumber {
@@ -29,4 +35,12 @@
 
 .smallerNumber {
   font-size: 2rem;
+}
+
+.red{
+  color: red;
+}
+
+.green {
+  color: green;
 }

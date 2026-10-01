@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AverageFuelConsumptionChart } from './average-fuel-consumption-chart';
+import { AverageFuelConsumptionChart } from './statistics';
 
 describe('AverageFuelConsumptionChart', () => {
   let component: AverageFuelConsumptionChart;

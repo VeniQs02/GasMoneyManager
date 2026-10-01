@@ -8,11 +8,11 @@ import {Gas} from './data/Gas';
 import {HttpClient} from '@angular/common/http';
 import {GraphButtons} from './components/graph-buttons/graph-buttons';
 import {FuelPrice} from './data/FuelPrice';
-import {AverageFuelConsumptionChart} from './components/average-fuel-consumption-chart/average-fuel-consumption-chart';
+import {Statistics} from './components/statistics/statistics';
 import {NgClass} from '@angular/common';
 
 @Component({
-  imports: [Unit, Title, GalleryComponent, GraphButtons, AverageFuelConsumptionChart, NgClass],
+  imports: [Unit, Title, GalleryComponent, GraphButtons, Statistics, NgClass],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -69,7 +69,7 @@ export class App implements OnInit {
     } else if (chartName == 'Fueling chart') {
       this.isCustomChartVisible = false;
       this.renderFuelingChart();
-    } else if (chartName == 'Average fuel consumption') {
+    } else if (chartName == 'Statistics') {
       this.isCustomChartVisible = true;
     }
   }
